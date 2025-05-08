@@ -1,3 +1,4 @@
+
 name: Variable demo
 run-name: Testing env var
 
@@ -5,10 +6,11 @@ on: [push]
 
 env:
   owner_name: Amit
+  my_repo_var_value: ${{ vars.MY_REPO }}
 
 jobs:
   use_env_var:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Job execution from $owner_name"
+      - run: echo "Job execution from $owner_name - with repo variable $my_repo_var_value"
     
